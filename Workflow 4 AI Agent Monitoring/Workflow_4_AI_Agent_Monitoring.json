@@ -1,0 +1,106 @@
+{
+  "name": "Workflow_4_AI_Agent_Monitoring",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "authentication": "airtableOAuth2Api",
+        "baseId": {
+          "__rl": true,
+          "value": "https://airtable.com/appjV7rL2Pdxs0MqC/tblX3H3dyXpssfGTk/viwVBHIijOV2WjrPJ?blocks=hide",
+          "mode": "url"
+        },
+        "tableId": {
+          "__rl": true,
+          "value": "https://airtable.com/appjV7rL2Pdxs0MqC/tblX3H3dyXpssfGTk/viwVBHIijOV2WjrPJ?blocks=hide",
+          "mode": "url"
+        },
+        "triggerField": "Last Updated",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.airtableTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ce4a709b-2c08-49c2-8b5b-b51212b4fc41",
+      "name": "Airtable Trigger",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "Mqq11lWDql6bxieR",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0BPDS5LJHJ",
+          "mode": "list",
+          "cachedResultName": "client-updates"
+        },
+        "text": "=Agent Status Alert! {{ $json.fields['Agent Name'] }} deployment status is now: {{ $json.fields['Deployment Status'] }}.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5ed8ab62-ddcb-46b0-a48a-14dde2b4c550",
+      "name": "Send a message",
+      "webhookId": "d8ac6ef2-0ae0-49b9-b5b7-ad655f5a21ee",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "EGkRJrfCNTQihKgN",
+          "name": "Slack account 4"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Airtable Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "8e0ccd33-508a-4e50-bd6f-5f08a5574262",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "54395411356af56c1232be28c4b34d6a46b8d488425520214a96dfd365ac4906"
+  },
+  "id": "zxjvEBUAgpxJmXlLvyeBq",
+  "tags": [
+    {
+      "updatedAt": "2026-08-11T16:10:39.397Z",
+      "createdAt": "2026-08-11T16:10:39.397Z",
+      "id": "r0bXVGeD9nQNZohg",
+      "name": "Internship Day 6"
+    }
+  ]
+}

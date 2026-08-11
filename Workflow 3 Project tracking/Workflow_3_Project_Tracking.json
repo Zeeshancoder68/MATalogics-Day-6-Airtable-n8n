@@ -1,0 +1,100 @@
+{
+  "name": "Workflow_3_Project_Tracking",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        },
+        "authentication": "airtableOAuth2Api",
+        "baseId": {
+          "__rl": true,
+          "value": "https://airtable.com/appjV7rL2Pdxs0MqC/tbln1Mme7N5kw0kkr/viwSjFpB0ad0q9x5b?blocks=hide",
+          "mode": "url"
+        },
+        "tableId": {
+          "__rl": true,
+          "value": "https://airtable.com/appjV7rL2Pdxs0MqC/tbln1Mme7N5kw0kkr/viwSjFpB0ad0q9x5b?blocks=hide",
+          "mode": "url"
+        },
+        "triggerField": "Last Updated",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.airtableTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1a715ef5-9bc7-4c3b-a59c-08a1d1b398ba",
+      "name": "Airtable Trigger",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "Mqq11lWDql6bxieR",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "zeeshan.sohail68@gmail.com",
+        "subject": "=Project Update: {{ $json.fields['Project Name'] }}",
+        "message": "=The status for project {{ $json.fields['Project Name'] }} has been changed to: {{ $json.fields['Status'] }}.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "744e24b4-c80f-489d-acb0-df763de12b86",
+      "name": "Send a message",
+      "webhookId": "a6521dd5-6bf0-48c1-ad7c-56b43fd5ee9f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "ymmXtPhNi1jHORmn",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Airtable Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "81661820-1219-4e6a-b1af-6ec6da315208",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "54395411356af56c1232be28c4b34d6a46b8d488425520214a96dfd365ac4906"
+  },
+  "id": "9uKus7YS_mV6JaHO9HdXu",
+  "tags": [
+    {
+      "updatedAt": "2026-08-11T16:10:39.397Z",
+      "createdAt": "2026-08-11T16:10:39.397Z",
+      "id": "r0bXVGeD9nQNZohg",
+      "name": "Internship Day 6"
+    }
+  ]
+}
