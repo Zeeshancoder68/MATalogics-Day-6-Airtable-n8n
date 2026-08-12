@@ -1,9 +1,9 @@
-**MATalogics AI Operations Base - Day 6
+MATalogics AI Operations Base - Day 6
 Author: Zeeshan Sohail | zeeautomate
 
 Project Type: Database Architecture & Automation Workflows
 
-Tech Stack: n8n, Airtable, Slack API, Gmail API**
+Tech Stack: n8n, Airtable, Slack API, Gmail API
 
 Overview
 This repository contains the architecture and automation logic for a comprehensive AI Agency Database. The project integrates a relational Airtable database with n8n to automate operations across five distinct enterprise sectors: Lead Management, Client Onboarding, Project Tracking, AI Agent Monitoring, and Internship Performance.
