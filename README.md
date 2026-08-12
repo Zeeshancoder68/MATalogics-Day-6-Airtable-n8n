@@ -39,7 +39,7 @@ Trigger: Intern Task Status marked as "Completed".
 
 Action: n8n calculates a point increase and automatically updates the intern's Performance Score field back in the Airtable database.
 
-**Repository Structure:**
+Repository Structure:
 
 ├── Module_3/
 │   └── Module_3_Operations.png
