@@ -1,46 +1,42 @@
-MATalogics AI Operations Base - Day 6
-Author: Zeeshan Sohail | zeeautomate
+# MATalogics AI Operations Base - Day 6
 
-Project Type: Database Architecture & Automation Workflows
+**Author:** Zeeshan Sohail | zeeautomate  
+**Project Type:** Database Architecture & Automation Workflows  
+**Tech Stack:** n8n, Airtable, Slack API, Gmail API
 
-Tech Stack: n8n, Airtable, Slack API, Gmail API
-
-Overview
+## Overview
 This repository contains the architecture and automation logic for a comprehensive AI Agency Database. The project integrates a relational Airtable database with n8n to automate operations across five distinct enterprise sectors: Lead Management, Client Onboarding, Project Tracking, AI Agent Monitoring, and Internship Performance.
 
-Live Database
-https://airtable.com/appjV7rL2Pdxs0MqC/shr8BplJjPkphv3Jf
+### Live Database 
+* [MATalogics AI Operations Base](https://airtable.com/appjV7rL2Pdxs0MqC/shr8BpIJpKphv3Jf)
 
-System Architecture
+## System Architecture
+
 The database is divided into specific tables, each monitored by an n8n webhook or polling trigger to execute downstream logic upon record creation or modification.
 
-1. Lead Management Pipeline
-Trigger: New Lead record created in Airtable.
+### 1. Lead Management Pipeline
+* **Trigger:** New Lead record created in Airtable.
+* **Action:** n8n parses the data and dispatches a real-time alert to the designated Slack channel for immediate sales team notification.
 
-Action: n8n parses the data and dispatches a real-time alert to the designated Slack channel for immediate sales team notification.
+### 2. Client Onboarding System
+* **Trigger:** New Client record generated.
+* **Action:** n8n dynamically assigns a unique Client ID and sends a structured onboarding notification to the internal team via Slack.
 
-2. Client Onboarding System
-Trigger: New Client record generated.
+### 3. Project Tracking Operations
+* **Trigger:** Project `Status` field updated in Airtable.
+* **Action:** n8n detects the modification and automatically triggers an email notification to relevant stakeholders via Gmail.
 
-Action: n8n dynamically assigns a unique Client ID and sends a structured onboarding notification to the internal team via Slack.
+### 4. AI Agent Deployment Monitoring
+* **Trigger:** AI Agent `Deployment Status` changes.
+* **Action:** n8n alerts the Operations Team in Slack with the specific agent name and new operational state.
 
-3. Project Tracking Operations
-Trigger: Project Status field updated in Airtable.
+### 5. Automated Internship Tracker
+* **Trigger:** Intern `Task Status` marked as "Completed".
+* **Action:** n8n calculates a point increase and automatically updates the intern's `Performance Score` field back in the Airtable database.
 
-Action: n8n detects the modification and automatically triggers an email notification to relevant stakeholders via Gmail.
+## Repository Structure
 
-4. AI Agent Deployment Monitoring
-Trigger: AI Agent Deployment Status changes.
-
-Action: n8n alerts the Operations Team in Slack with the specific agent name and new operational state.
-
-5. Automated Internship Tracker
-Trigger: Intern Task Status marked as "Completed".
-
-Action: n8n calculates a point increase and automatically updates the intern's Performance Score field back in the Airtable database.
-
-Repository Structure
-
+```text
 ├── Module_3/
 │   └── Module_3_Operations.png
 ├── Workflow_1_Lead_Management/
